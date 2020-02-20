@@ -10,6 +10,8 @@ Ingredient.destroy_all
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Seeding started...."
+
+Cocktail.create(name: "Rum & Coke")
 response = open("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
 json = JSON.parse(response.read)
 json["drinks"].each do |ingredient|
