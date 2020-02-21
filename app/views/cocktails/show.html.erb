@@ -5,15 +5,15 @@
     </div>
     <div class="description border">
       <h1 class="western text-center"><%= @cocktail.name %></h1>
-      <h2 class="text-center">The ingredients</h2>
+      <h2 class="text-center white mb-4">The ingredients</h2>
       <ul>
         <% array = (1..15).to_a%>
         <% array.each do |n| %>
           <% unless @cocktail["strIngredient#{n}"].nil?%>
-          <p id="ingredient"><i class="fas fa-bullseye"></i>  <%= @cocktail["strMeasure#{n}"] %>- <%= @cocktail["strIngredient#{n}"] %></p>
+          <h5 id="ingredient"><i class="fas fa-bullseye"></i>  <%= @cocktail["strMeasure#{n}"] %>- <%= @cocktail["strIngredient#{n}"] %></h5>
           <% end %>
         <% end %>
-        <p class="text-center"><%= @cocktail.instructions %></p>
+        <h4 class="mt-4 text-center white"><%= @cocktail.instructions %></h4>
       </ul>
     </div>
   </div>

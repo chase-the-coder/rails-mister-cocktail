@@ -1,9 +1,9 @@
 // // Specific CSS for your home-page
-// .background {
-//   background-image: url("https://images.unsplash.com/photo-1559443922-3f698a0ff27a");
-//   background-position: center;
-//   background-size: cover;
-// }
+.background {
+  background-image: url("https://images.unsplash.com/photo-1559443922-3f698a0ff27a");
+  background-position: center;
+  background-size: cover;
+}
 .home-container {
   margin: 0 auto;
   width: 900px;
@@ -24,14 +24,22 @@
 .description {
   padding: 64px 0;
   width: 40%;
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(25,26,30,1) 100%, rgba(0,212,255,1) 100%);
 }
 
 .western {
   font-family: 'Rye';
   font-size: 64px;
+  color: white;
 }
 
 #ingredient {
-  color: #A64B03;
+  color: white;
   padding-left: 164px;
 }
+
+.white {
+  color:white;
+}
+
