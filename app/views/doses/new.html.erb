@@ -1,16 +1,27 @@
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <% if @dose.errors.any? %>
-    <div class="errors-container">
-      <ul>
-        <% @dose.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+<html>
+  <body>
+  <div class="background">
+    <div class="home-container d-flex justify-content-center">
+      <div class="description border p-4">
+          <h1 class="western" >Add ingredient</h1>
+        <%= simple_form_for [@cocktail, @dose] do |f| %>
+          <% if @dose.errors.any? %>
+            <div class="errors-container">
+              <ul>
+                <% @dose.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <%= f.input :description, class: "w-20" %>
+          <%= f.association :ingredient %>
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+          <%= link_to "Back to cocktails", cocktails_path(@cocktail) %>
         <% end %>
-      </ul>
+        <%= link_to "Back to cocktail list", cocktails_path %>
+      </div>
     </div>
-  <% end %>
-  <%= f.input :description, class: "w-20" %>
-  <%= f.association :ingredient %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-  <%= link_to "Back to cocktails", cocktails_path(@cocktail) %>
-<% end %>
-<%= link_to "Back to cocktail list", cocktails_path %>
+  </div>
+  </body>
+</html>
