@@ -1,23 +1,20 @@
-<h1><%= @cocktail.name %></h1>
-<p><%= @cocktail.instructions %></p>
-<% @cocktail.doses.each do |dose| %>
-  <p><%= dose.ingredient.name %>-<%= dose.description %>-
-     <%= link_to "delete", dose_path(dose), method: :delete %> </p>
-<% end %>
-
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <% if @dose.errors.any? %>
-    <div class="errors-container">
+<div class="background">
+  <div class="custom-container border d-flex justify-content-around">
+    <div>
+      <%= image_tag @cocktail.thumbnail, class: "image-thumbnail rounded" %>
+    </div>
+    <div class="description border">
+      <h1 class="western text-center"><%= @cocktail.name %></h1>
+      <h2 class="text-center">The ingredients</h2>
       <ul>
-        <% @dose.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <% array = (1..15).to_a%>
+        <% array.each do |n| %>
+          <% unless @cocktail["strIngredient#{n}"].nil?%>
+          <p id="ingredient"><i class="fas fa-bullseye"></i>  <%= @cocktail["strMeasure#{n}"] %>- <%= @cocktail["strIngredient#{n}"] %></p>
+          <% end %>
         <% end %>
+        <p class="text-center"><%= @cocktail.instructions %></p>
       </ul>
     </div>
-  <% end %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-  <%= link_to "Back to cocktails", cocktails_path(@cocktail) %>
-<% end %>
-<%= link_to "Back to cocktail list", cocktails_path %>
+  </div>
+</div>

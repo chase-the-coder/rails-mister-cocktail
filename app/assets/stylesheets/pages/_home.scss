@@ -1,6 +1,37 @@
 // // Specific CSS for your home-page
-// body {
+// .background {
 //   background-image: url("https://images.unsplash.com/photo-1559443922-3f698a0ff27a");
 //   background-position: center;
 //   background-size: cover;
 // }
+.home-container {
+  margin: 0 auto;
+  width: 900px;
+  padding: 144px 0;
+}
+.custom-container {
+  margin: 0 auto;
+  width: 90%;
+  padding: 144px 0;
+}
+
+.image-thumbnail {
+  width: 640px;
+  height: 640px;
+  // padding: 50px;
+}
+
+.description {
+  padding: 64px 0;
+  width: 40%;
+}
+
+.western {
+  font-family: 'Rye';
+  font-size: 64px;
+}
+
+#ingredient {
+  color: #A64B03;
+  padding-left: 164px;
+}
