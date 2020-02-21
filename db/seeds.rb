@@ -22,6 +22,7 @@ array.each do |letter|
       unless drink["strIngredient#{number}"].nil?
         drink_hash["strIngredient#{number}"] = drink["strIngredient#{number}"]
         drink_hash["strMeasure#{number}"] = drink["strMeasure#{number}"]
+        Ingredient.create(name: drink["strIngredient#{number}"])
       end
     end
     Cocktail.create(drink_hash)
