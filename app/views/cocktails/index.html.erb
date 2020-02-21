@@ -11,8 +11,7 @@
   <img class="card-img-top" src="" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title"><%= cocktail.name %></h5>
-    <p class="card-text"><%= cocktail.instructions %></p>
-    <a href="#" class="btn btn-primary">Details<%= link_to "details" , cocktail_path(cocktail) %></a>
+   <%= link_to "details" , cocktail_path(cocktail), class: "btn btn-primary" %>
   </div>
 </div>
     <p> <%= link_to cocktail.name, cocktail_path(cocktail) %></p>
