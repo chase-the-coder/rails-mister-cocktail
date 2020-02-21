@@ -32,19 +32,19 @@
 //       });
 //     });
 // };
-const searchValue = () => {
-  const search = document.getElementById("search");
-  search.addEventListener('keyup', (event) => {
-    event.preventDefault();
-    // results.innerHTML = '';
-    // searchResult(search.value);
-    console.log(search.value);
-  });
-};
+// const searchValue = () => {
+//   const search = document.getElementById("search");
+//   search.addEventListener('keyup', (event) => {
+//     event.preventDefault();
+//     // results.innerHTML = '';
+//     // searchResult(search.value);
+//     console.log(search.value);
+//   });
+// };
 
 // const drinkChoice = () => {
 //   const drink = document.getElementById("drink")
 // }
 
-export {searchResult};
-export {searchValue};
+// export {searchResult};
+// export {searchValue};

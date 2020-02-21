@@ -13,8 +13,12 @@
           <h5 id="ingredient"><i class="fas fa-bullseye"></i>  <%= @cocktail["strMeasure#{n}"] %>- <%= @cocktail["strIngredient#{n}"] %></h5>
           <% end %>
         <% end %>
+        </ul>
         <h4 class="mt-4 text-center white"><%= @cocktail.instructions %></h4>
-      </ul>
+        <div class="d-flex justify-content-center">
+          <div> <%= link_to 'Back', cocktails_path, class: "btn btn-danger text-center m-3" %></div>
+          <div><%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-success text-center m-3" %></div>
+        </div>
     </div>
   </div>
 </div>
