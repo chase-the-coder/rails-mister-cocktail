@@ -1,24 +1,32 @@
 <body>
-
   <div class="container border text-center">
-    <input type="text" id="search">
-    <ul id="results" class="list-group">
-    </ul>
 
-  <% 3.times do %>
-    <% cocktail = @cocktails[rand(1..239)] %>
-    <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title"><%= cocktail.name %></h5>
-   <%= link_to "details" , cocktail_path(cocktail), class: "btn btn-primary" %>
+
+  <form>
+  <div class="form-group">
+    <label for="search">Search</label>
+    <input type="text" class="form-control" id="search" placeholder="margarita">
   </div>
-</div>
-    <p> <%= link_to cocktail.name, cocktail_path(cocktail) %></p>
-  <% end %>
-  <% @cocktails[rand(1..239)] do |cocktail| %>
-    <p> <%= link_to cocktail.name, cocktail_path(cocktail) %></p>
-  <% end %>
-  <%= link_to 'Create a new cocktail', new_cocktail_path %>
+      <ul id="results" class="list-group">
+    </ul>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+
+    <% 3.times do %>
+      <% cocktail = @cocktails[rand(1..239)] %>
+      <div class="card" style="width: 18rem;">
+        <%= image_tag cocktail.thumbnail, alt: "alttext", class: "card-img-top" %>
+        <!-- <img class="card-img-top" src="<% cocktail.thumbnail %>" alt="Card image cap"> -->
+        <div class="card-body">
+          <h5 class="card-title"><%= cocktail.name %></h5>
+          <%= link_to "details" , cocktail_path(cocktail), class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to 'Create a new cocktail', new_cocktail_path %>
   </div>
 </body>

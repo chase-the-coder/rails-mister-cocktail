@@ -17,4 +17,5 @@
 
 console.log('Hello World from Webpacker')
 import 'bootstrap';
-
+import {searchResult, searchValue} from '../components/navBar';
+searchValue();
