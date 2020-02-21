@@ -4,6 +4,11 @@ class CreateCocktails < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :instructions
       t.string :thumbnail
+      array = (1..15).to_a
+      array.each do |number|
+        t.string "strIngredient#{number}"
+        t.string "strMeasure#{number}"
+      end
       t.timestamps
     end
   end

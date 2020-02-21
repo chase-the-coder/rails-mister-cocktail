@@ -15,7 +15,16 @@ array.each do |letter|
   response = open("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=#{letter}")
   json = JSON.parse(response.read)
   json["drinks"].each do |drink|
-   Cocktail.create(name:  drink["strDrink"], instructions: drink["strInstructions"], thumbnail: drink["strDrinkThumb"])
+    drink_hash = { name:  drink["strDrink"], instructions: drink["strInstructions"],
+                   thumbnail: drink["strDrinkThumb"] }
+    array = (1..15).to_a
+    array.each do |number|
+      unless drink["strIngredient#{number}"].nil?
+        drink_hash["strIngredient#{number}"] = drink["strIngredient#{number}"]
+        drink_hash["strMeasure#{number}"] = drink["strMeasure#{number}"]
+      end
+    end
+    Cocktail.create(drink_hash)
   end
 end
 
