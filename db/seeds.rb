@@ -10,11 +10,27 @@ Ingredient.destroy_all
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Seeding started...."
-
-Cocktail.create(name: "Rum & Coke")
-response = open("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
-json = JSON.parse(response.read)
-json["drinks"].each do |ingredient|
-  Ingredient.create(name: ingredient["strIngredient1"])
+array = ("a".."z").to_a
+array.each do |letter|
+  response = open("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=#{letter}")
+  json = JSON.parse(response.read)
+  json["drinks"].each do |drink|
+   Cocktail.create(name:  drink["strDrink"], instructions: drink["strInstructions"], thumbnail: drink["strDrinkThumb"])
+  end
 end
+
+
+# 25.times do
+#   response = open("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+#   json = JSON.parse(response.read)
+#   Cocktail.create(name: json["drinks"][0]["strDrink"], instructions: json["drinks"][0]["strInstructions"])
+# end
+
+
+# Cocktail.create(name: "Rum & Coke")
+# response = open("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
+# json = JSON.parse(response.read)
+# json["drinks"].each do |ingredient|
+#   Ingredient.create(name: ingredient["strIngredient1"])
+# end
 puts "Seeding complete!"
