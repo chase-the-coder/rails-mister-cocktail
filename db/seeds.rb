@@ -22,7 +22,7 @@ array.each do |letter|
 end
 
 
-# 25.times do
+# 25.times do O
 #   response = open("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 #   json = JSON.parse(response.read)
 #   Cocktail.create(name: json["drinks"][0]["strDrink"], instructions: json["drinks"][0]["strInstructions"])
