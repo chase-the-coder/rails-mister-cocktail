@@ -1,3 +1,9 @@
+<html>
+  <body class="background">
+  <div>
+    <div class="custom-container d-flex justify-content-center">
+      <div class="description border p-4">
+          <h1 class="western text-center" >New Cocktail</h1>
 <%= simple_form_for @cocktail do |f| %>
   <% if @cocktail.errors.any? %>
     <div class="errors-container">
@@ -8,8 +14,15 @@
       </ul>
     </div>
   <% end %>
-  <%= f.input :name %>
-  <%= f.input :instructions %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-  <%= link_to "Back to cocktails", cocktails_path %>
-<% end %>
+  <%= f.input :name, class: "w-20 white" %>
+          <%= f.input :instructions, class: "w-20 white" %>
+          <%= f.submit "Submit", class: "btn btn-outline-light" %>
+          <%= link_to "Back", cocktails_path, class: "btn btn-outline-danger ml-3" %>
+ <% end %>
+        <%=  %>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
+
