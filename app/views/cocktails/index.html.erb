@@ -5,7 +5,7 @@
     </h1>
     <div class="d-flex justify-content-around">
       <% 3.times do %>
-        <% cocktail = @cocktails[rand(1..220)] %>
+        <% cocktail = @cocktails[rand(1..200)] %>
         <div class="card rounded mb-4" style="width: 18rem;">
           <%= image_tag cocktail.thumbnail, alt: "alttext", class: "card-img-top rounded" %>
           <div class="card-body">

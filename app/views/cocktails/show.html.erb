@@ -13,6 +13,10 @@
           <h5 id="ingredient"><i class="fas fa-bullseye"></i>  <%= @cocktail["strMeasure#{n}"] %>- <%= @cocktail["strIngredient#{n}"] %></h5>
           <% end %>
         <% end %>
+
+          <% @cocktail.ingredients.each do |ingredient| %>
+            <h5 id="ingredient"><i class="fas fa-bullseye"></i>  <%= ingredient.doses.first.description %>- <%= ingredient.name %></h5>
+          <% end %>
         </ul>
         <h4 class="mt-4 text-center white"><%= @cocktail.instructions %></h4>
         <div class="d-flex justify-content-center">
