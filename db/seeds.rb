@@ -8,7 +8,7 @@ array.each do |letter|
   json = JSON.parse(response.read)
   json["drinks"].each do |drink|
     drink_hash = { name:  drink["strDrink"], instructions: drink["strInstructions"],
-                   thumbnail: drink["strDrinkThumb"] }
+                   thumbnail: drink["strDrinkThumb"], user_id: 1 }
     array = (1..15).to_a
     array.each do |number|
       unless drink["strIngredient#{number}"].nil?
@@ -21,6 +21,7 @@ array.each do |letter|
   end
 end
 
+puts "Seeding complete!"
 
 # 25.times do O
 #   response = open("https://www.thecocktaildb.com/api/json/v1/1/random.php")
@@ -35,4 +36,3 @@ end
 # json["drinks"].each do |ingredient|
 #   Ingredient.create(name: ingredient["strIngredient1"])
 # end
-puts "Seeding complete!"

@@ -12,10 +12,13 @@ class CocktailsController < ApplicationController
 
   def new
     @cocktail = Cocktail.new
+    authorize @cocktail
   end
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
+    @cocktail.user = current_user
+    authorize @cocktail
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
@@ -23,6 +26,18 @@ class CocktailsController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+  def update
+    if @cocktail.update(cocktail_params)
+      redirect_to user_path(current_user)
+
+    else
+
+    end
+  end
   private
 
   def cocktail_params
@@ -31,5 +46,6 @@ class CocktailsController < ApplicationController
 
   def set_cocktail
     @cocktail = Cocktail.find(params[:id])
+    authorize @cocktail
   end
 end

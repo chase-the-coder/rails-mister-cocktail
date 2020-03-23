@@ -65,3 +65,7 @@ gem 'simple_form'
 
 #authentication
 gem 'devise'
+
+#authorization
+gem 'pundit'
+
