@@ -1,0 +1,29 @@
+<html>
+  <body class="background">
+  <div>
+    <div class="custom-container d-flex justify-content-center">
+      <div class="description-login border p-4">
+        <div class="text-left">
+          <%= link_to "<i class='fas fa-arrow-left text-left white '></i>".html_safe, cocktail_path(@cocktail) %>
+        </div>
+          <h1 class="western text-center" >Add ingredient</h1>
+        <%= simple_form_for [@cocktail, @dose] do |f| %>
+          <% if @dose.errors.any? %>
+            <div class="errors-container">
+              <ul>
+                <% @dose.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <%= f.input :description, class: "w-20 white" %>
+          <%= f.association :ingredient, class: "w-20 white" %>
+          <%= f.submit "Submit", class: "btn btn-outline-light" %>
+        <% end %>
+        <%=  %>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

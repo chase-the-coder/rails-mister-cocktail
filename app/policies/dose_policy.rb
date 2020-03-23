@@ -1,4 +1,4 @@
-class CocktailPolicy < ApplicationPolicy
+class DosePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -10,14 +10,6 @@ class CocktailPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
-  end
-
-  def show?
     true
-  end
-
-  def destroy?
-    record.user == user
   end
 end

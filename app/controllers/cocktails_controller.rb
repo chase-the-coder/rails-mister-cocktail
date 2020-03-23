@@ -2,12 +2,13 @@ class CocktailsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_cocktail, only: [:show, :edit, :update]
   def index
-    @cocktails = Cocktail.all
+    @cocktails = policy_scope(Cocktail).order(name: :asc)
   end
 
   def show
     @cocktail = Cocktail.find(params[:id])
     @dose = Dose.new
+    authorize @cocktail
   end
 
   def new
@@ -38,6 +39,7 @@ class CocktailsController < ApplicationController
 
     end
   end
+
   private
 
   def cocktail_params

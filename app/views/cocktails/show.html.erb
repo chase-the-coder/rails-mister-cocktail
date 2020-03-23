@@ -15,13 +15,21 @@
         <% end %>
 
           <% @cocktail.ingredients.each do |ingredient| %>
-            <h5 id="ingredient"><i class="fas fa-bullseye"></i>  <%= ingredient.doses.first.description %>- <%= ingredient.name %></h5>
+            <% if @cocktail.user == current_user %>
+              <h5 id="ingredient"><i class="fas fa-bullseye"></i>  <%= ingredient.doses.first.description %>- <%= ingredient.name %>
+              <!-- link_to "<i class='fas fa-pencil-alt white'></i>".html_safe, edit_cocktail_dose(@dose) -->
+                <%= link_to "<i class='fas fa-trash white'></i>".html_safe, cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" } %></h5>
+            <% else %>
+              <h5 id="ingredient"><i class="fas fa-bullseye"></i>  <%= ingredient.doses.first.description %>- <%= ingredient.name %></h5>
+            <% end %>
           <% end %>
         </ul>
         <h4 class="mt-4 p-4 text-center white"><%= @cocktail.instructions %></h4>
-        <div class="d-flex justify-content-center">
-           <div><%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-outline-light m-3" %></div>
-        </div>
+        <% if @cocktail.user == current_user %>
+          <div class="d-flex justify-content-center">
+             <div><%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-outline-light m-3" %></div>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>
