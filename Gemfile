@@ -69,3 +69,6 @@ gem 'devise'
 #authorization
 gem 'pundit'
 
+#search
+gem 'pg_search', '~> 2.3.0'
+gem "algoliasearch-rails"

@@ -9,15 +9,20 @@
   <h2>Hand crafted for you:</h2>
 </div>
 <div class="d-flex justify-content-center">
-  <% 4 .times do %>
+  <% 4.times do %>
     <% cocktail = @cocktails[rand(1..200)] %>
-    <div class="card rounded m-4" style="width: 18rem;">
-      <%= image_tag cocktail.thumbnail, alt: "alttext", class: "card-img-top rounded" %>
-      <div class="card-body">
-        <h5 class="card-title"><%= cocktail.name %></h5>
-        <%= link_to "details" , cocktail_path(cocktail), class: "btn btn-primary" %>
-      </div>
-    </div>
+     <div class="categories-cards m-4">
+      <%= link_to cocktail_path(cocktail) do %>
+        <div class="card-shadow card-restaurant card-grow">
+          <%= image_tag(cocktail.thumbnail) %>
+          <div class="card-restaurant-infos">
+            <div>
+              <h2><%= truncate cocktail.name, length: 25, separator: /\w+/ %></h2>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+
   <% end %>
 </div>
-
