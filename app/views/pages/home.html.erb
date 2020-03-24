@@ -1,1 +1,23 @@
-<h1>This is the home page.</h1>
+<div class="background">
+  <div class="home-container text-center">
+    <h1>
+      <span id="banner-typed-text" class="western"></span>
+    </h1>
+  </div>
+</div>
+<div class="d-flex justify-content-center mt-5">
+  <h2>Hand crafted for you:</h2>
+</div>
+<div class="d-flex justify-content-center">
+  <% 4 .times do %>
+    <% cocktail = @cocktails[rand(1..200)] %>
+    <div class="card rounded m-4" style="width: 18rem;">
+      <%= image_tag cocktail.thumbnail, alt: "alttext", class: "card-img-top rounded" %>
+      <div class="card-body">
+        <h5 class="card-title"><%= cocktail.name %></h5>
+        <%= link_to "details" , cocktail_path(cocktail), class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
