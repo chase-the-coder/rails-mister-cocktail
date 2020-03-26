@@ -10,8 +10,12 @@
         <div class="categories-cards m-4">
           <%= link_to cocktail_path(cocktail) do %>
             <div class="card-shadow card-restaurant card-grow">
-              <%= image_tag(cocktail.thumbnail) %>
-              <div class="card-restaurant-infos">
+              <% if cocktail.thumbnail.present? %>
+                <%= image_tag(cocktail.thumbnail) %>
+              <% elsif cocktail.photo.key.present? %>
+                  <%= cl_image_tag(cocktail.photo.key) %>
+              <% end %>
+              <div class="card-restaurant-infos text-center">
                 <div>
                   <h2><%= truncate cocktail.name, length: 25, separator: /\w+/ %></h2>
                 </div>
