@@ -75,3 +75,7 @@ gem "algoliasearch-rails"
 
 #image upload
 gem 'dotenv-rails', groups: [:development, :test]
+
+#cloudinary
+gem 'cloudinary', '~> 1.12.0'
+

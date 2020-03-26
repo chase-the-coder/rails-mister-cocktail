@@ -16,8 +16,9 @@
               </ul>
             </div>
               <% end %>
-          <%= f.input :name, class: "w-20 white" %>
-          <%= f.input :instructions, class: "w-20 white" %>
+          <%= f.input :name, label_html: { class: 'white' } %>
+          <%= f.input :instructions, label_html: { class: 'white' } %>
+          <%= f.input :photo, as: :file, label_html: { class: 'white' } %>
           <%= f.submit "Submit", class: "btn btn-outline-light" %>
         <% end %>
       </div>

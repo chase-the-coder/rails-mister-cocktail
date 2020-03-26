@@ -1,6 +1,6 @@
 class CocktailsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_cocktail, only: [:show, :edit, :update]
+  before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
   def index
     @cocktails = policy_scope(Cocktail).order(name: :asc)
   end
@@ -34,16 +34,19 @@ class CocktailsController < ApplicationController
   def update
     if @cocktail.update(cocktail_params)
       redirect_to user_path(current_user)
-
     else
-
+      render :new
     end
+  end
+
+  def destroy
+    @cocktail.destroy
   end
 
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
 
   def set_cocktail

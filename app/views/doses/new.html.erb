@@ -17,9 +17,9 @@
               </ul>
             </div>
           <% end %>
-          <%= f.input :description, class: "w-20 white" %>
-          <%= f.association :ingredient, class: "w-20 white" %>
-          <%= f.submit "Submit", class: "btn btn-outline-light" %>
+          <%= f.input :description, label_html: { class: 'white' } %>
+          <%= f.association :ingredient, label_html: { class: 'white' } %>
+          <%= f.submit "Submit", label_html: { class: 'white' } %>
         <% end %>
         <%=  %>
       </div>
