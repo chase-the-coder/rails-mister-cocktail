@@ -15,7 +15,7 @@
               <% elsif cocktail.photo.key.present? %>
                   <%= cl_image_tag(cocktail.photo.key) %>
               <% end %>
-              <div class="card-restaurant-infos text-center">
+              <div class="card-restaurant-infos">
                 <div>
                   <h2><%= truncate cocktail.name, length: 25, separator: /\w+/ %></h2>
                 </div>
