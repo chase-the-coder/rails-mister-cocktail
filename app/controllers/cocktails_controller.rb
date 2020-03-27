@@ -2,7 +2,11 @@ class CocktailsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
   def index
-    @cocktails = policy_scope(Cocktail).order(name: :asc)
+    if params[:query].present?
+      @cocktails = policy_scope(Cocktail.search_by_name(params[:query]))
+    else
+      @cocktails = policy_scope(Cocktail.all)
+    end
   end
 
   def show

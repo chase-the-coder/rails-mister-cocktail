@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :set_user, except: :update
 
@@ -5,8 +7,7 @@ class UsersController < ApplicationController
     @cocktail = Cocktail.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)
@@ -29,7 +30,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-     params.require(:user).permit(:email)
+    params.require(:user).permit(:email, :photo)
   end
-
 end
